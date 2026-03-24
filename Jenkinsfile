@@ -15,9 +15,9 @@ pipeline {
             }
         }
 
-        stage('Check Docker') {
+        stage('Build Docker Image') {
             steps {
-                sh 'docker --version'
+                sh 'docker build -t mini-event-parser:jenkins .'
             }
         }
     }
