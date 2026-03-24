@@ -14,5 +14,11 @@ pipeline {
                 sh 'python3 -m pytest || python -m pytest'
             }
         }
+
+        stage('Check Docker') {
+            steps {
+                sh 'docker --version'
+            }
+        }
     }
 }
