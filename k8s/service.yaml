@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mini-event-parser-service
+spec:
+  selector:
+    app: mini-event-parser
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5001
+  type: NodePort

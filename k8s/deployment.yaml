@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mini-event-parser
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mini-event-parser
+  template:
+    metadata:
+      labels:
+        app: mini-event-parser
+    spec:
+      containers:
+        - name: mini-event-parser
+          image: mini-event-parser:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 5001
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "250m"
+              memory: "256Mi"
